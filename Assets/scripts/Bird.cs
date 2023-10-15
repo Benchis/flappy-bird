@@ -10,9 +10,13 @@ public class Bird : MonoBehaviour
 
     public TMP_Text scoreText;
 
+    public float speed;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        Pipe.speed = speed;
     }
 
     void Update()
@@ -32,8 +36,7 @@ public class Bird : MonoBehaviour
 
     public void Die()
     {
-        var currentScene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(currentScene);
+        Pipe.speed = 0;
     }
 
     void OnTriggerEnter2D(Collider2D other)
